@@ -14,7 +14,11 @@ public class SearchFieldsPanel extends JPanel {
 	public static final String SEARCH_OPTION_THREE = "Radio 3";
 	
 	private final JTextField searchTermTextField = new JTextField("", 25);
-	private final ButtonGroup searchOptions = new ButtonGroup();
+	
+	//TODO - once we know what these radio buttons are supposed to be called, rename the variables
+	private final JRadioButton button1 = new JRadioButton(SEARCH_OPTION_ONE);
+	private final JRadioButton button2 = new JRadioButton(SEARCH_OPTION_TWO);
+	private final JRadioButton button3 = new JRadioButton(SEARCH_OPTION_THREE);
 	
 	public SearchFieldsPanel(){
 		init();
@@ -23,12 +27,8 @@ public class SearchFieldsPanel extends JPanel {
 	private void init(){
 		super.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		super.add(searchTermTextField);
-		
-		//TODO - once we know what these radio buttons are supposed to be called, rename the variables
-		JRadioButton button1 = new JRadioButton(SEARCH_OPTION_ONE);
-		JRadioButton button2 = new JRadioButton(SEARCH_OPTION_TWO);
-		JRadioButton button3 = new JRadioButton(SEARCH_OPTION_THREE);
-		
+
+		ButtonGroup searchOptions = new ButtonGroup();
 		searchOptions.add(button1);
 		searchOptions.add(button2);
 		searchOptions.add(button3);
@@ -41,14 +41,12 @@ public class SearchFieldsPanel extends JPanel {
 	}
 	
 	public String getSelectedSearchOption(){
-		Object[] selectedObjects = searchOptions.getSelection().getSelectedObjects();
-		if(selectedObjects != null && selectedObjects.length == 1){
-			if(selectedObjects[0] instanceof JRadioButton != true){
-				throw new IllegalStateException("Somehow, something other than a JRadioButton made its way into our ButtonGroup");
-			}
-			
-			JRadioButton selected = (JRadioButton)selectedObjects[0];
-			return selected.getText();
+		if(button1.isSelected()){
+			return button1.getText();
+		}else if(button2.isSelected()){
+			return button2.getText();
+		}else if(button3.isSelected()){
+			return button3.getText();
 		}
 		
 		return null;
