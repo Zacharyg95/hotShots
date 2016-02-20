@@ -1,4 +1,4 @@
-package hotshots.search;
+package hotshots.search.component;
 
 import java.awt.Dimension;
 

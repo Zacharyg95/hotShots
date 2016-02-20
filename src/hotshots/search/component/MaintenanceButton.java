@@ -1,4 +1,4 @@
-package hotshots.search;
+package hotshots.search.component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,4 +1,7 @@
-package hotshots.search;
+package hotshots.search.component;
+
+import hotshots.search.engine.NoOpSeachEngine;
+import hotshots.search.engine.SearchEngine;
 
 import java.awt.HeadlessException;
 
@@ -13,12 +16,12 @@ public class SearchFrame extends JFrame{
 	private final JLabel label = new JLabel("Hot Shots Search Engine");
 
 
-	public SearchFrame() throws HeadlessException {
+	public SearchFrame(SearchEngine engine) throws HeadlessException {
 		super("Hot Shots Search Engine");
-		init();
+		init(engine);
 	}
 	
-	private void init(){
+	private void init(SearchEngine engine){
 		JPanel container = new JPanel();
 		container.setLayout(new BoxLayout(container, BoxLayout.PAGE_AXIS));
 		
@@ -30,7 +33,7 @@ public class SearchFrame extends JFrame{
 		SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
 		
 		top.add(searchFieldsPanel);		
-		top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane));
+		top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane, engine));
 
 		middle.add(searchResultsScrollPane);
 

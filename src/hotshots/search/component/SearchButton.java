@@ -1,4 +1,6 @@
-package hotshots.search;
+package hotshots.search.component;
+
+import hotshots.search.engine.SearchEngine;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,11 +11,13 @@ public class SearchButton extends JButton {
 	
 	private SearchFieldsPanel searchFieldsPanel;
 	private SearchResultsScrollPane searchResultsScrollPane;
+	private SearchEngine engine;
 	
-	public SearchButton(SearchFieldsPanel searchFieldsPanel, SearchResultsScrollPane searchResultsScrollPane){
+	public SearchButton(SearchFieldsPanel searchFieldsPanel, SearchResultsScrollPane searchResultsScrollPane, SearchEngine engine){
 		super("Search");
 		this.searchFieldsPanel = searchFieldsPanel;
 		this.searchResultsScrollPane = searchResultsScrollPane;
+		this.engine = engine;
 		init();
 	}
 	
@@ -22,12 +26,10 @@ public class SearchButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				//TODO - implement me
 				String searchTerm = searchFieldsPanel.getSearchTerm();
 				String selectedSearchOption = searchFieldsPanel.getSelectedSearchOption();
 				
-				String searchResult = "Search Term: " + searchTerm + "\nSelected Search Option: " + selectedSearchOption;
-				searchResultsScrollPane.setText(searchResult);
+				searchResultsScrollPane.setText(engine.search(searchTerm, selectedSearchOption));
 			}
 			
 		});

@@ -1,4 +1,4 @@
-package hotshots.search;
+package hotshots.search.component;
 
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
