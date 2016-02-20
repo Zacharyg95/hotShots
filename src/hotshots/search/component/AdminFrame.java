@@ -21,11 +21,10 @@ public class AdminFrame extends JFrame{
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 		panel.add(new JLabel("Search Engine Index Table"));
 		
-		JPanel top = new JPanel();
+
+		SearchIndexTable searchIndexTable = new SearchIndexTable();
 		JPanel middle = new JPanel();
 		JPanel bottom = new JPanel();
-		
-		SearchIndexTable searchIndexTable = new SearchIndexTable();
 		
 		
 		middle.add(new AddFileButton());
@@ -34,7 +33,7 @@ public class AdminFrame extends JFrame{
 		
 		bottom.add(new ResetWindowButton());
 		
-		panel.add(top);
+		panel.add(searchIndexTable);
 		panel.add(middle);
 		panel.add(bottom);
 		
