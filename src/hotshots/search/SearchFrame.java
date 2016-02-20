@@ -1,14 +1,12 @@
 package hotshots.search;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.HeadlessException;
 
-import javax.swing.JButton;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class SearchFrame extends JFrame{
 
@@ -21,21 +19,29 @@ public class SearchFrame extends JFrame{
 	}
 	
 	private void init(){
+		JPanel container = new JPanel();
+		container.setLayout(new BoxLayout(container, BoxLayout.PAGE_AXIS));
 		
-		JPanel panel = new JPanel();
-		//TODO - use layout manager to lay things out
-		BorderLayout LayoutManager = new BorderLayout();
-			JTextArea SearchTermTextField = new JTextArea("SearchTermTextField(PAGE_START)");
-				panel.add(new SearchTermTextField());
-				SearchTermTextField.setPreferredSize(new Dimension(200, 100));
-			JButton SearchButton = new JButton("SearchButton(PAGE_START)");
-		//TODO - add SearhTermTextField
-		//TODO - add search option radio buttons
-		panel.add(new SearchButton());
-		//TODO - add SearchResultPanel
-		panel.add(new MaintenanceButton());
-		panel.add(new AboutButton());
-		super.add(panel);
+		JPanel top = new JPanel();
+		JPanel middle = new JPanel();
+		JPanel bottom = new JPanel();
+
+		SearchResultsScrollPane searchResultsScrollPane = new SearchResultsScrollPane();
+		SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
+		
+		top.add(searchFieldsPanel);		
+		top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane));
+
+		middle.add(searchResultsScrollPane);
+
+		bottom.add(new MaintenanceButton());
+		bottom.add(new AboutButton());
+		
+		container.add(top);
+		container.add(middle);
+		container.add(bottom);
+
+		super.add(container);
 		super.setBounds(10, 10, 200, 100);
 		super.pack();
 		super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

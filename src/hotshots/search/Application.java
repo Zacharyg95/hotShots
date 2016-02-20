@@ -1,6 +1,5 @@
 package hotshots.search;
 
-import javax.swing.JFrame;
 
 
 /**
@@ -12,12 +11,8 @@ public class Application {
 	
 	
 	public static void main(String[] args) {
-		//one JFrame for search window
-		SearchFrame searchFrame = new SearchFrame();
-		
-		
-		//one JFrame for search index admin window
-		AdminFrame adminFrame = new AdminFrame();
+		//one Frame for to rule them all, one frame to bind them...
+		new SearchFrame();
 		
 	}
 
