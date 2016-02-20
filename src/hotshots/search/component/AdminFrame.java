@@ -2,8 +2,10 @@ package hotshots.search.component;
 
 import java.awt.HeadlessException;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class AdminFrame extends JFrame{
 	
@@ -15,10 +17,32 @@ public class AdminFrame extends JFrame{
 	}
 	
 	private void init(){
-		setBounds(50, 50, 200, 100);
-		pack();
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setVisible(true);
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		panel.add(new JLabel("Search Engine Index Table"));
+		
+		JPanel top = new JPanel();
+		JPanel middle = new JPanel();
+		JPanel bottom = new JPanel();
+		
+		SearchIndexTable searchIndexTable = new SearchIndexTable();
+		
+		
+		middle.add(new AddFileButton());
+		middle.add(new RebuildOutOfDateButton());
+		middle.add(new RemoveSelectedButton());
+		
+		bottom.add(new ResetWindowButton());
+		
+		panel.add(top);
+		panel.add(middle);
+		panel.add(bottom);
+		
+		super.add(panel);
+		super.setBounds(50, 50, 200, 100);
+		super.pack();
+		super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		super.setVisible(true);
 	}
 
 }

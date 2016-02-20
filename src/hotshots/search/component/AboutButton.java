@@ -17,8 +17,8 @@ public class AboutButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				//TODO - implement me
-				System.out.println("About button was clicked, but I don't know what to do :(");
+				new AboutFrame();
+				
 			}
 			
 		});
