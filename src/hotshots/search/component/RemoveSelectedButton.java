@@ -14,7 +14,7 @@ public class RemoveSelectedButton extends JButton {
 			//Clicked Stub Method
 			public void actionPerformed(ActionEvent e)
 			  {//Executes when button is pressed
-				throws new Success("It Worked!");
+				throw new Success("It Worked!");
 			  }
 			
 		});
