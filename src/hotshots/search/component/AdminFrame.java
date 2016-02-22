@@ -32,6 +32,8 @@ public class AdminFrame extends JFrame{
 		middle.add(new RemoveSelectedButton());
 		
 		bottom.add(new ResetWindowButton());
+		bottom.add(new JLabel("Number of Files indexed:")); //need to add the variable to refeerence number of indexed files after this string.
+		bottom.add(new JLabel("Search Engine Version 1.2.3"));
 		
 		panel.add(searchIndexTable);
 		panel.add(middle);

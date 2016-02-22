@@ -9,16 +9,16 @@ import javax.swing.JTextField;
 public class SearchFieldsPanel extends JPanel {
 
 	//TODO - once we know what these radio buttons are supposed to be called, rename the variables and the string values
-	public static final String SEARCH_OPTION_ONE = "Radio 1";
-	public static final String SEARCH_OPTION_TWO = "Radio 2";
-	public static final String SEARCH_OPTION_THREE = "Radio 3";
+	public static final String AND_SEARCH_BUTTON = "Radio 1";
+	public static final String OR_SEARCH_BUTTON = "Radio 2";
+	public static final String PHRASE_SEARCH_BUTTON = "Radio 3";
 	
 	private final JTextField searchTermTextField = new JTextField("", 25);
 	
 	//TODO - once we know what these radio buttons are supposed to be called, rename the variables
-	private final JRadioButton button1 = new JRadioButton(SEARCH_OPTION_ONE);
-	private final JRadioButton button2 = new JRadioButton(SEARCH_OPTION_TWO);
-	private final JRadioButton button3 = new JRadioButton(SEARCH_OPTION_THREE);
+	private final JRadioButton button1 = new JRadioButton(AND_SEARCH_BUTTON);
+	private final JRadioButton button2 = new JRadioButton(OR_SEARCH_BUTTON);
+	private final JRadioButton button3 = new JRadioButton(PHRASE_SEARCH_BUTTON);
 	
 	public SearchFieldsPanel(){
 		init();
