@@ -25,6 +25,7 @@ public class SearchFrame extends JFrame{
 		JPanel container = new JPanel();
 		container.setLayout(new BoxLayout(container, BoxLayout.PAGE_AXIS));
 		
+		JPanel header = new JPanel();
 		JPanel top = new JPanel();
 		JPanel middle = new JPanel();
 		JPanel bottom = new JPanel();
@@ -32,7 +33,7 @@ public class SearchFrame extends JFrame{
 		SearchResultsScrollPane searchResultsScrollPane = new SearchResultsScrollPane();
 		SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
 		
-		top.add (label); // reference to private constant
+		header.add (label); // reference to private constant
 		top.add(searchFieldsPanel);		
 		top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane, engine));
 
