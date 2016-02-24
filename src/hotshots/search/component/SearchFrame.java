@@ -34,6 +34,7 @@ public class SearchFrame extends JFrame{
 		SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
 		
 		header.add (label); // reference to private constant
+		
 		top.add(searchFieldsPanel);		
 		top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane, engine));
 
@@ -42,6 +43,7 @@ public class SearchFrame extends JFrame{
 		bottom.add(new MaintenanceButton());
 		bottom.add(new AboutButton());
 		
+		container.add(header);
 		container.add(top);
 		container.add(middle);
 		container.add(bottom);

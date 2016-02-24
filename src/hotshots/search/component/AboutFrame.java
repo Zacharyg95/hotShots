@@ -1,5 +1,8 @@
 package hotshots.search.component;
 
+import java.awt.Font;
+import java.awt.TextArea;
+
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -11,14 +14,17 @@ public class AboutFrame extends JFrame {
 		
 	}
 	private void init(){
-		JTextArea textArea = new JTextArea(20,30);
-		textArea.setText("Version 1.2.3 " +
-	"HotShots Search Engine" +
-    "Created by Adam, Zach, & Alex" +
-    "HCC Dale Mabry; Tampa, Florida" +
+		private final static String newline = "\n";
+		JTextArea textArea = new JTextArea(8,40);
+		textArea.setText("Version 1.2.3 " + newline +
+	"HotShots Search Engine" + newline +
+    "Created by Adam, Zach, & Alex" + newline +
+    "HCC Dale Mabry; Tampa, Florida" + newline +
     "Advanced Java Project #3-5");
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
 		super.add(textArea);
-		setBounds(50, 50, 200, 100);
+		textArea.setBounds(50, 50, 200, 100);
 		pack();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
