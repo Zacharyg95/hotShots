@@ -13,7 +13,6 @@ public class DummyButtonActionListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 	System.out.println(buttonName + " button was clicked");
-
     }
 
 }
