@@ -1,22 +1,16 @@
 package hotshots.search.component;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class ResetWindowButton extends JButton {
+    private static final String BUTTON_LABEL = "Reset Window";
+
     public ResetWindowButton() {
-	super("Reset Window");
+	super(BUTTON_LABEL);
 	init();
     }
 
     private void init() {
-	super.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-		System.out.println("Reset Window Button clicked");
-	    }
-
-	});
+	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
     }
 }

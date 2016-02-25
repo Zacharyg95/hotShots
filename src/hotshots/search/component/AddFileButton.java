@@ -1,23 +1,18 @@
 package hotshots.search.component;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class AddFileButton extends JButton {
 
+    private static final String BUTTON_LABEL = "Add File...";
+
     // contructor
     public AddFileButton() {
-	super("Add File...");
+	super(BUTTON_LABEL);
 	init();
     }
 
     private void init() {
-	super.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-		System.out.println("The Add file button was clicked");
-	    }
-	});
+	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
     }
 }

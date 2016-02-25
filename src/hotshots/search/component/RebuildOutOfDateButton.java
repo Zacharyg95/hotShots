@@ -1,22 +1,16 @@
 package hotshots.search.component;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class RebuildOutOfDateButton extends JButton {
+    private static final String BUTTON_LABEL = "Rebuild Out-of-Date";
+
     public RebuildOutOfDateButton() {
-	super("Rebuild Out-of-Date");
+	super(BUTTON_LABEL);
 	init();
     }
 
     private void init() {
-	super.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-		System.out.println("Rebuild out of date button was clicked");
-	    }
-
-	});
+	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
     }
 }

@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 public class AboutFrame extends JFrame {
+    private final static String newline = "\n";
+
     public AboutFrame() {
 	super("About Window");
 
@@ -12,8 +14,12 @@ public class AboutFrame extends JFrame {
     }
 
     private void init() {
+
 	JTextArea textArea = new JTextArea(8, 40);
-	textArea.setText("Version 1.2.3/nHotShots Search Engine/nCreated by Adam, Zach, & Alex/nHCC Dale Mabry; Tampa, Florida/nAdvanced Java Project #3-5");
+	textArea.setText("Version 1.2.3 " + newline + "HotShots Search Engine"
+		+ newline + "Created by Adam, Zach, & Alex" + newline
+		+ "HCC Dale Mabry; Tampa, Florida" + newline
+		+ "Advanced Java Project #3-5");
 	textArea.setLineWrap(true);
 	textArea.setWrapStyleWord(true);
 	super.add(textArea);

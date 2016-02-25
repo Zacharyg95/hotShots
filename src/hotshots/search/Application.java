@@ -20,4 +20,14 @@ public class Application {
 
     }
 
+    public class Success extends Exception {
+
+	public Success(String message) {
+	    super(message);
+	}
+
+	public Success(String message, Throwable throwable) {
+	    super(message, throwable);
+	}
+    }
 }
