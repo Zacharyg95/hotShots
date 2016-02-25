@@ -6,22 +6,21 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class AboutButton extends JButton {
-	
-	public AboutButton(){
-		super("About");
-		init();
-	}
 
-	private void init(){
-		super.addActionListener(new ActionListener(){
+    public AboutButton() {
+	super("About");
+	init();
+    }
 
-			@Override
-			public void actionPerformed(ActionEvent event) {
-				new AboutFrame();
-				
-			}
-			
-		});
-	}
-	
+    private void init() {
+	super.addActionListener(new ActionListener() {
+
+	    @Override
+	    public void actionPerformed(ActionEvent event) {
+		new AboutFrame();
+	    }
+
+	});
+    }
+
 }
