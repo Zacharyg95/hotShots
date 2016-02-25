@@ -30,6 +30,7 @@ public class SearchFrame extends JFrame {
 	SearchResultsScrollPane searchResultsScrollPane = new SearchResultsScrollPane();
 	SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
  
+	
 	header.add(label); // reference to private constant
 
 	top.add(searchFieldsPanel);
