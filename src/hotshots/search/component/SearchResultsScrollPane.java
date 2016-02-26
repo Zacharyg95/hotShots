@@ -1,7 +1,14 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
 
-import java.awt.Dimension;
 
+import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
@@ -19,8 +26,10 @@ public class SearchResultsScrollPane extends JScrollPane {
     }
 
     private void init() {
+       
 	super.setPreferredSize(new Dimension(400, 300));
 	super.setViewportView(searchResultsTextPane);
+        
     }
 
     /**
