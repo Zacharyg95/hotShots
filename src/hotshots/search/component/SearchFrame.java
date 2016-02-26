@@ -1,9 +1,15 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
 
+import java.awt.Color;
 import hotshots.search.engine.SearchEngine;
-
 import java.awt.HeadlessException;
-
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,15 +36,20 @@ public class SearchFrame extends JFrame {
 	SearchResultsScrollPane searchResultsScrollPane = new SearchResultsScrollPane();
 	SearchFieldsPanel searchFieldsPanel = new SearchFieldsPanel();
  
-	
+       
+	header.setBackground(Color.lightGray);
 	header.add(label); // reference to private constant
 
+        top.setBackground(Color.lightGray);
 	top.add(searchFieldsPanel);
 	top.add(new SearchButton(searchFieldsPanel, searchResultsScrollPane,
 		engine));
-
+        
+        
 	middle.add(searchResultsScrollPane);
-
+        middle.setBackground(Color.lightGray);
+        
+        bottom.setBackground(Color.lightGray);
 	bottom.add(new MaintenanceButton());
 	bottom.add(new AboutButton());
 
@@ -46,7 +57,8 @@ public class SearchFrame extends JFrame {
 	container.add(top);
 	container.add(middle);
 	container.add(bottom);
-
+       
+        
 	super.add(container);
 	super.setBounds(10, 10, 200, 100);
 	super.pack();
