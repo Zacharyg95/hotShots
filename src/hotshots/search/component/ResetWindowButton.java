@@ -4,7 +4,7 @@ import javax.swing.JButton;
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
- * @author Adam Craig, Zack, Alex, and Alex
+ * @author Adam M Craig, Zack, Alex, and Alex
  *
  */
 public class ResetWindowButton extends JButton {

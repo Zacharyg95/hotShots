@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
- * @author Adam Craig, Zack, Alex, and Alex
+ * @author Adam M Craig, Zack, Alex, and Alex
  *
  */
 public class SearchFrame extends JFrame {

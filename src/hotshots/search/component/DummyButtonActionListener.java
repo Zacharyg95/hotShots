@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
- * @author Adam Craig, Zack, Alex, and Alex
+ * @author Adam M Craig, Zack, Alex, and Alex
  *
  */
 public class DummyButtonActionListener implements ActionListener {
