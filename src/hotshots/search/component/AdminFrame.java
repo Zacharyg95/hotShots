@@ -1,7 +1,15 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
 
+import java.awt.Color;
+import javax.swing.*;
 import java.awt.HeadlessException;
-
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,16 +27,23 @@ public class AdminFrame extends JFrame {
     private void init() {
 	JPanel panel = new JPanel();
 	panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-	panel.add(new JLabel("Search Engine Index Table"));
-
+	panel.add(new JLabel("Search Engine Index Table",  SwingConstants.LEFT));
+        panel.setBackground(Color.lightGray);
+        
+        
 	SearchIndexTable searchIndexTable = new SearchIndexTable();
 	JPanel middle = new JPanel();
 	JPanel bottom = new JPanel();
+        
+        
+        
 
+        middle.setBackground(Color.lightGray);
 	middle.add(new AddFileButton());
 	middle.add(new RebuildOutOfDateButton());
 	middle.add(new RemoveSelectedButton());
 
+        bottom.setBackground(Color.lightGray);
 	bottom.add(new ResetWindowButton());
 	bottom.add(new JLabel("Number of Files indexed:")); // need to add the
 							    // variable to
@@ -42,6 +57,7 @@ public class AdminFrame extends JFrame {
 	panel.add(middle);
 	panel.add(bottom);
 
+        
 	super.add(panel);
 	super.setBounds(50, 50, 200, 100);
 	super.pack();
