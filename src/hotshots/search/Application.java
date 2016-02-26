@@ -7,7 +7,7 @@ import hotshots.search.engine.SearchEngine;
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
- * @author Adam, Zack, Alex, and Nathan
+ * @author Adam Craig, Zack, Alex, and Alex
  *
  */
 public class Application {

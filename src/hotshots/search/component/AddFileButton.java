@@ -2,6 +2,13 @@ package hotshots.search.component;
 
 import javax.swing.JButton;
 
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
+
 public class AddFileButton extends JButton {
 
     private static final String BUTTON_LABEL = "Add File...";

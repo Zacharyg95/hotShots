@@ -8,7 +8,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.border.EmptyBorder;
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
 public class SearchFrame extends JFrame {
 
     private final JLabel label = new JLabel("Hot Shots Search Engine");
@@ -21,7 +27,7 @@ public class SearchFrame extends JFrame {
     private void init(SearchEngine engine) {
 	JPanel container = new JPanel();
 	container.setLayout(new BoxLayout(container, BoxLayout.PAGE_AXIS));
-
+		
 	JPanel header = new JPanel();
 	JPanel top = new JPanel();
 	JPanel middle = new JPanel();

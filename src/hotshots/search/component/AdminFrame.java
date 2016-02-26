@@ -6,7 +6,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
 public class AdminFrame extends JFrame {
 
     private final JLabel label = new JLabel("Search Index Admin");

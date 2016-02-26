@@ -4,7 +4,12 @@ import java.awt.Dimension;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
 public class SearchResultsScrollPane extends JScrollPane {
 
     private final JTextPane searchResultsTextPane = new JTextPane();

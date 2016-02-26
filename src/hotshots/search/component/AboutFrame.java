@@ -1,14 +1,22 @@
 package hotshots.search.component;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
-
+import javax.swing.border.EmptyBorder;
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
 public class AboutFrame extends JFrame {
     private final static String newline = "\n";
-
+    
     public AboutFrame() {
 	super("About Window");
-
+	JPanel aboutPanel = new JPanel();
+	aboutPanel.setBorder(new EmptyBorder(10,10,10,10));
 	init();
 
     }

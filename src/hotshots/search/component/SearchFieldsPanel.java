@@ -5,7 +5,12 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam Craig, Zack, Alex, and Alex
+ *
+ */
 public class SearchFieldsPanel extends JPanel {
 
     public static final String AND_SEARCH_BUTTON = "And";
