@@ -1,4 +1,9 @@
 package hotshots.search.component;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
@@ -6,13 +11,32 @@ package hotshots.search.component;
  *
  */
  public class CreateIndex {
- 
-    //Method to create search indexes and will store in a file.
-    //Method is void at the moment but can return a pathname or value if needed.
-    public static void CreateIndex(){
-    	static HashMap<String, List<String>> index=new HashMap<String, List<String>>();
-    	//I believe this is the right type of object we need for the index.
-    }
- 
+ 	 //Class-Wide variables
+	 public static long TimeLastIndexed;
+	 public static String[] Pathnames;
+	 public static HashMap <String, List<String>> index = new HashMap <String, List<String>>();
+	 
+    //Method will read the main file with the pathnames of the files that wish to be indexed by the user.
+	
+    public static void CreatePathNames(String FilesToBeIndexed)
+    { //Method accepts pathname value to file with file to be indexed
+    	try{
+    			File PassedFile = new File(FilesToBeIndexed);//Prepare file to be scanned by Scanner
+    	    	Scanner MainFile = new Scanner(PassedFile);// New Scanner to read the passed parameter pathname
+    		
+    	    	 int i = 0; //Create array index
+    	    	while(MainFile.hasNext())//while the passed parameter has a next line this loop will run
+    	    	{
+    	    		Pathnames[i] = MainFile.next(); //stores value in pathname array.
+    	    		i++; //Increment arry index for next value
+    	    	}
+    	    	MainFile.close();
+    	    	}
+    
+    catch(FileNotFoundException e)// cataches if it cannot find file for scanner
+	{
+	  e.printStackTrace();//Print stacktrace for now.
+	}
  
  }
+    }
