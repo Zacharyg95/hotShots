@@ -1,7 +1,6 @@
 package hotshots.search.component;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -14,7 +13,7 @@ public class CreateIndex {
 	// Class-Wide variables
 	public static long TimeLastIndexed;
 	public static String[] Pathnames;
-	public static HashMap<String, List<String>> index = new HashMap<String, List<String>>();
+	public static HashMap<String, List<String>> SearchIndex = new HashMap<String, List<String>>();
 
 	// Method will read the main file with the pathnames of the files that wish to be indexed by the user.
 
@@ -42,8 +41,32 @@ public class CreateIndex {
 	
 	
 	public static void CreateSearchIndex(String[] Pathnames){
+		for(String Path : Pathnames)// for loop for each pathname element
+		{
+			try {
+				File PassedFile = new File(Path);// Prepare file to be scanned by Scanner
+				Scanner FileBeingIndexed = new Scanner(PassedFile);// New Scanner to read the passed parameter pathname
 		
-		
-		
+				while (FileBeingIndexed.hasNext()) //While loop retrieves each word from file and adds the HashMap
+				{
+					
+				}
+				FileOutputStream SearchIndexFile = new FileOutputStream("SearchIndexFilePathName");//Prepare fileoutput for object output
+				ObjectOutputStream out = new ObjectOutputStream(SearchIndexFile);//New object output passed the output file
+				out.writeObject(SearchIndex);// writeObject to file
+				out.close();
+				SearchIndexFile.close();//Close Output Streams for next loop
+				FileBeingIndexed.close();//Close Scanner before loops end, to create new one when loop startover
+				}
+			
+			catch (FileNotFoundException e)// catches if it cannot find file for scanner
+			{
+				e.printStackTrace();// Print stacktrace for now.
+			}
+			catch (IOException e)// catches if it cannot find file for scanner
+			{
+				e.printStackTrace();// Print stacktrace for now.
+			}
+	}
 	}
 }
