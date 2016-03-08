@@ -15,11 +15,11 @@ import javax.swing.border.EmptyBorder;
  * @author Adam M Craig, Zack, Alex, and Alex
  *
  */
-public class SearchFrame extends JFrame {
+public class ScanIndexToTextDoc extends JFrame {
 
     private final JLabel label = new JLabel("Hot Shots Search Engine");
 
-    public SearchFrame(SearchEngine engine) throws HeadlessException {
+    public ScanIndexToTextDoc(SearchEngine engine) throws HeadlessException {
 	super("Hot Shots Search Engine");
 	init(engine);
     }
