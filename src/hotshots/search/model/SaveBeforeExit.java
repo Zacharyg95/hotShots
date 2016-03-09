@@ -7,24 +7,8 @@ import java.util.Properties;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-/**
- *
- * @author Akpriest
- */
 public class SaveBeforeExit  {
-    
-    /**
-     *
-     * @param fileName
-     * @throws IOException
-     */
+   
     public static void SaveBeforeExit(String[] filenameArray, String[] pathnameArray, String[] invertedIndexArray, String[] indexArray) throws IOException{
         
         String filenames = "";
@@ -80,7 +64,7 @@ public class SaveBeforeExit  {
        //store data 
        properties.store(writer, "Autoher: Alex, Zack, Adam, and Alex");
        
-       // clsoe write
+       // close write
        writer.close();
     }
     
