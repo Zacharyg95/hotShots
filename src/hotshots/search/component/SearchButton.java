@@ -1,10 +1,15 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 /**
  * HotShotsSearchEngine -- a basic search engine.
@@ -21,6 +26,8 @@ public class SearchButton extends JButton {
     public SearchButton(SearchFieldsPanel searchFieldsPanel,
 	    SearchResultsScrollPane searchResultsScrollPane, SearchEngine engine) {
 	super("Search");
+        
+        
 	this.searchFieldsPanel = searchFieldsPanel;
 	this.searchResultsScrollPane = searchResultsScrollPane;
 	this.engine = engine;

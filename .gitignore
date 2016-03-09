@@ -3,3 +3,5 @@
 .gitignore
 .project
 .settings/
+/SearchEngineProjectPart2/nbproject/private/
+/SearchEngineProjectPart2/build/
