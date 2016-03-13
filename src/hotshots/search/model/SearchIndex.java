@@ -9,4 +9,6 @@ public class SearchIndex {
     private final List<IndexedFile> indexedFiles = new ArrayList<IndexedFile>();
     private long lastRan;
     
+    
+    
 }

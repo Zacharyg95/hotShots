@@ -7,6 +7,10 @@
 
 package hotshots.search.component;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.JButton;
 
 /**
@@ -22,11 +26,22 @@ public class AddFileButton extends JButton {
 
     // contructor
     public AddFileButton() {
+
 	super(BUTTON_LABEL);
 	init();
     }
 
-    private void init() {
-	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
-    }
+   private void init() {
+   	super.addActionListener(new ActionListener() {
+   
+   	   public void actionPerformed(ActionEvent e) {
+   	      FileChooser fc = new FileChooser();
+   	      int returnValue = fc.showOpenDialog(null);
+   	      if (returnValue == fc.APPROVE_OPTION) {
+   	         File selectFile = fc.getSelectedFile();
+   	      }
+   	   }
+   	});
+
+   }
 }
