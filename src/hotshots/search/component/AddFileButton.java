@@ -1,4 +1,15 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 
@@ -11,15 +22,26 @@ import javax.swing.JButton;
 
 public class AddFileButton extends JButton {
 
-    private static final String BUTTON_LABEL = "Add File...";
+   private static final String BUTTON_LABEL = "Add File...";
 
-    // contructor
-    public AddFileButton() {
-	super(BUTTON_LABEL);
-	init();
-    }
+   // contructor
+   public AddFileButton() {
 
-    private void init() {
-	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
-    }
+      super(BUTTON_LABEL);
+      init();
+   }
+
+   private void init() {
+      super.addActionListener(new ActionListener() {
+
+         public void actionPerformed(ActionEvent e) {
+            FileChooser fc = new FileChooser();
+            int returnValue = fc.showOpenDialog(null);
+            if (returnValue == fc.APPROVE_OPTION) {
+               File selectFile = fc.getSelectedFile();
+            }
+         }
+      });
+
+   }
 }
