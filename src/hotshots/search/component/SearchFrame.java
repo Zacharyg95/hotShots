@@ -9,11 +9,13 @@ package hotshots.search.component;
 
 import java.awt.Color;
 import hotshots.search.engine.SearchEngine;
+import hotshots.search.model.SaveBeforeExit;
 import java.awt.HeadlessException;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.event.WindowEvent;
 
 public class SearchFrame extends JFrame {
 
@@ -66,4 +68,14 @@ public class SearchFrame extends JFrame {
 	super.setVisible(true);
     }
 
+    
+    void windowClosing(WindowEvent e){
+    
+       
+        
+       //The below line will be used once the other parts of the program are complete. 
+       //This methode will save the necessary date before closing 
+        //SaveBeforeExit(filenameArray, pathnameArray, invertedIndexArray, indexArray);
+    
+}
 }
