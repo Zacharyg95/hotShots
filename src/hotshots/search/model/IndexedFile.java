@@ -19,13 +19,15 @@ public class IndexedFile {
     */
    private long lastIndexed;
 
-   public IndexedFile() {
-
-   }
 
    public IndexedFile(File file, Date now) {
       this.fileName = file.getAbsolutePath();
       this.lastIndexed = now.getTime();
+   }
+
+   public IndexedFile(String fileName, long lastIndexed) {
+      this.fileName = fileName;
+      this.lastIndexed = lastIndexed;
    }
 
    public String getFileName() {

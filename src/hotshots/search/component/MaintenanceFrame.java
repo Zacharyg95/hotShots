@@ -2,6 +2,7 @@ package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
 
+import java.awt.Dimension;
 import java.awt.HeadlessException;
 
 import javax.swing.BoxLayout;
@@ -31,7 +32,7 @@ public class MaintenanceFrame extends JFrame {
       panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
       panel.add(new JLabel("Search Engine Index Table"));
 
-      SearchIndexTable searchIndexTable = new SearchIndexTable();
+      SearchIndexTable searchIndexTable = new SearchIndexTable(engine);
       JPanel middle = new JPanel();
       JPanel bottom = new JPanel();
 
@@ -54,6 +55,7 @@ public class MaintenanceFrame extends JFrame {
 
       super.add(panel);
       super.setBounds(50, 50, 200, 100);
+      
       super.pack();
       super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       super.setVisible(true);

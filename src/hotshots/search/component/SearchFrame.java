@@ -55,7 +55,7 @@ public class SearchFrame extends JFrame {
       super.add(container);
       super.setBounds(10, 10, 200, 100);
       super.pack();
-      super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       super.setVisible(true);
    }
 
