@@ -1,9 +1,12 @@
 package hotshots.search.component;
 
+import hotshots.search.engine.SearchEngine;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
@@ -11,20 +14,24 @@ import javax.swing.JButton;
  *
  */
 public class MaintenanceButton extends JButton {
-    public MaintenanceButton() {
-	super("Maintenance");
-	init();
-    }
+   
+   private final SearchEngine engine;
+   
+   public MaintenanceButton(SearchEngine engine) {
+      super("Maintenance");
+      this.engine = engine;
+      init();
+   }
 
-    private void init() {
-	super.addActionListener(new ActionListener() {
+   private void init() {
+      super.addActionListener(new ActionListener() {
 
-	    @Override
-	    public void actionPerformed(ActionEvent event) {
-		// when the maintenance button is clicked, show an AdminFrame
-		new AdminFrame();
-	    }
+         @Override
+         public void actionPerformed(ActionEvent event) {
+            // when the maintenance button is clicked, show an AdminFrame
+            new MaintenanceFrame(engine);
+         }
 
-	});
-    }
+      });
+   }
 }

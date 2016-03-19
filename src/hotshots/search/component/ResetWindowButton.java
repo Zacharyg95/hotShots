@@ -1,6 +1,7 @@
 package hotshots.search.component;
 
 import javax.swing.JButton;
+
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
@@ -8,14 +9,14 @@ import javax.swing.JButton;
  *
  */
 public class ResetWindowButton extends JButton {
-    private static final String BUTTON_LABEL = "Reset Window";
+   private static final String BUTTON_LABEL = "Reset Window";
 
-    public ResetWindowButton() {
-	super(BUTTON_LABEL);
-	init();
-    }
+   public ResetWindowButton() {
+      super(BUTTON_LABEL);
+      init();
+   }
 
-    private void init() {
-	super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
-    }
+   private void init() {
+      super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
+   }
 }

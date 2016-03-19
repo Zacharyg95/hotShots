@@ -1,7 +1,7 @@
 package hotshots.search;
 
-import hotshots.search.component.ScanIndexToTextDoc;
-import hotshots.search.engine.NoOpSeachEngine;
+import hotshots.search.component.SearchFrame;
+import hotshots.search.engine.HotShotsSeachEngine;
 import hotshots.search.engine.SearchEngine;
 
 /**
@@ -12,23 +12,11 @@ import hotshots.search.engine.SearchEngine;
  */
 public class Application {
 
-    public static void main(String[] args) {
-	// TODO - instantiate the working search engine here
-	SearchEngine engine = new NoOpSeachEngine();
-	// one Frame for to rule them all, one frame to bind them...
-	new ScanIndexToTextDoc(engine);
+   public static void main(String[] args) {
+      // TODO - instantiate the working search engine here
+      SearchEngine engine = new HotShotsSeachEngine();
+      // one Frame for to rule them all, one frame to bind them...
+      new SearchFrame(engine);
 
-    }
-
-    public class Success extends Exception {
-
-	public Success(String message) {
-	    super(message);
-	}
-
-	public Success(String message, Throwable throwable) {
-	    super(message, throwable);
-	}
-    }
-  
+   }
 }
