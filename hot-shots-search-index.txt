@@ -1,6 +1,6 @@
 C:\Users\Adam\git\hotShots\test-data\testFile1.txt	1458413232421
 C:\Users\Adam\git\hotShots\test-data\testFile2.txt	1458413232421
 C:\Users\Adam\git\hotShots\test-data\testFile3.txt	1458413232421
-C:\Users\Adam\git\hotShots\test-data\testFile4.txt	1458415345500
-C:\Users\Adam\git\hotShots\test-data\testFile5.txt	1458415345516
-C:\Users\Adam\git\hotShots\test-data\testFile6.txt	1458415345516
+C:\Users\Adam\git\hotShots\test-data\testFile4.txt	1458415934789
+C:\Users\Adam\git\hotShots\test-data\testFile5.txt	1458415934789
+C:\Users\Adam\git\hotShots\test-data\testFile6.txt	1458415934789

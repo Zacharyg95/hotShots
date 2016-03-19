@@ -51,7 +51,7 @@ public class IndexedFilesValidator {
       List<IndexedFile> indexedFiles = getIndexedFiles();
       for (IndexedFile indexedFile : indexedFiles) {
          if (indexedFile.exists()
-               && indexedFile.hasBeenModifiedSinceLastIndexed()) {
+               && indexedFile.fileModifiedSinceLastIndexed()) {
             modifiedFiles.add(indexedFile);
          }
       }
