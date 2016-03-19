@@ -21,9 +21,9 @@ import javax.swing.JButton;
  *
  */
 public class MaintenanceButton extends JButton {
-   
+
    private final SearchEngine engine;
-   
+
    public MaintenanceButton(SearchEngine engine) {
       super("Maintenance");
       this.engine = engine;

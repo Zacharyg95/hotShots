@@ -2,7 +2,6 @@ package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
 
-import java.awt.Dimension;
 import java.awt.HeadlessException;
 
 import javax.swing.BoxLayout;
@@ -55,7 +54,7 @@ public class MaintenanceFrame extends JFrame {
 
       super.add(panel);
       super.setBounds(50, 50, 200, 100);
-      
+
       super.pack();
       super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       super.setVisible(true);

@@ -18,12 +18,13 @@ import javax.swing.JButton;
  *
  */
 public class RebuildOutOfDateButton extends JButton {
-   
+
    private static final String BUTTON_LABEL = "Rebuild Out-of-Date";
    private final SearchEngine engine;
    private final SearchIndexTable searchIndexTable;
 
-   public RebuildOutOfDateButton(SearchIndexTable searchIndexTable, SearchEngine engine) {
+   public RebuildOutOfDateButton(SearchIndexTable searchIndexTable,
+         SearchEngine engine) {
       super(BUTTON_LABEL);
       this.engine = engine;
       this.searchIndexTable = searchIndexTable;

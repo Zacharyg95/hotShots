@@ -38,26 +38,27 @@ public class SearchIndexTable extends JPanel {
       columnNames = new Object[] { "File Name", "Last Indexed" };
 
       model = new DefaultTableModel(rowData, columnNames);
-      
+
       List<IndexedFile> indexedFiles = engine.getIndexedFiles();
       add(indexedFiles);
-      
+
       table = new JTable(model);
       scrollPane = new JScrollPane(table);
       scrollPane.setPreferredSize(new Dimension(1100, 350));
-      
+
       super.add(scrollPane);
       super.setBackground(Color.lightGray);
    }
 
    public void add(List<IndexedFile> indexedFiles) {
-      for(IndexedFile indexedFile : indexedFiles){
+      for (IndexedFile indexedFile : indexedFiles) {
          model.addRow(getRow(indexedFile));
       }
    }
 
    private Object[] getRow(IndexedFile indexedFile) {
-     return new Object[]{indexedFile.getFileName(), indexedFile.getLastIndexedAsDate()};
+      return new Object[] { indexedFile.getFileName(),
+            indexedFile.getLastIndexedAsDate() };
    }
 
 }
