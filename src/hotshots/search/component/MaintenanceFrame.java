@@ -2,6 +2,7 @@ package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
 
+import java.awt.Dimension;
 import java.awt.HeadlessException;
 
 import javax.swing.BoxLayout;
