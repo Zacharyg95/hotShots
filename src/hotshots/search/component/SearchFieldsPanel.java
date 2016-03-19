@@ -1,5 +1,13 @@
+/**
+ * HotShotsSearchEngine -- a basic search engine.
+ * 
+ * @author Adam, Zack, Alex, and Nathan
+ *
+ */
+
 package hotshots.search.component;
 
+import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -40,12 +48,25 @@ public class SearchFieldsPanel extends JPanel {
       searchOptions.add(orSearchButton);
       searchOptions.add(phraseSearchButton);
 
+<<<<<<< HEAD
       JPanel bottom = new JPanel();
       bottom.add(andSearchButton);
       bottom.add(orSearchButton);
       bottom.add(phraseSearchButton);
       super.add(bottom);
    }
+=======
+        
+        
+	JPanel bottom = new JPanel();
+	bottom.add(andSearchButton);
+	bottom.add(orSearchButton);
+	bottom.add(phraseSearchButton);
+        
+        bottom.setBackground(Color.lightGray);
+	super.add(bottom);
+    }
+>>>>>>> 2b9447e917e8f02a4b1a31cfc0d0b96ee51e782a
 
    public String getSelectedSearchOption() {
       if (andSearchButton.isSelected()) {
