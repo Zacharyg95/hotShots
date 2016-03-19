@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
 /**
  * HotShotsSearchEngine -- a basic search engine.
  * 
@@ -12,20 +13,20 @@ import javax.swing.JButton;
  */
 public class AboutButton extends JButton {
 
-    public AboutButton() {
-	super("About");
-	init();
-    }
+   public AboutButton() {
+      super("About");
+      init();
+   }
 
-    private void init() {
-	super.addActionListener(new ActionListener() {
+   private void init() {
+      super.addActionListener(new ActionListener() {
 
-	    @Override
-	    public void actionPerformed(ActionEvent event) {
-		new AboutFrame();
-	    }
+         @Override
+         public void actionPerformed(ActionEvent event) {
+            new AboutFrame();
+         }
 
-	});
-    }
+      });
+   }
 
 }

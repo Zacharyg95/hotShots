@@ -1,6 +1,11 @@
 package hotshots.search.component;
 
+import hotshots.search.model.IndexedFile;
+
 import java.awt.Color;
+import java.util.List;
+import java.util.Vector;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -9,20 +14,36 @@ import javax.swing.table.TableModel;
 
 public class SearchIndexTable extends JPanel {
 
-    public SearchIndexTable() {
-	init();
-    }
+   private JTable table;
+   private DefaultTableModel model;
+   private JScrollPane scrollPane;
+   private Object rowData[][];
+   private Object columnNames[];
 
-    private void init() {
-	Object rowData[][] = {};
-	Object columnNames[] = { "File Name", "SearchIndex" };
+   public SearchIndexTable() {
+      init();
+   }
 
-	TableModel model = new DefaultTableModel(rowData, columnNames);
+   private void init() {
+      rowData = new Object[][] {};
+      columnNames = new Object[] { "File Name", "Last Indexed" };
 
-	JTable table = new JTable(model);
-	JScrollPane scrollPane = new JScrollPane(table);
-	super.add(scrollPane);
-        super.setBackground(Color.lightGray);
-        
-    }
+      model = new DefaultTableModel(rowData, columnNames);
+      table = new JTable(model);
+      scrollPane = new JScrollPane(table);
+
+      super.add(scrollPane);
+      super.setBackground(Color.lightGray);
+   }
+
+   public void add(List<IndexedFile> indexedFiles) {
+      for(IndexedFile indexedFile : indexedFiles){
+         model.addRow(getRow(indexedFile));
+      }
+   }
+
+   private Object[] getRow(IndexedFile indexedFile) {
+     return new Object[]{indexedFile.getFileName(), indexedFile.getLastIndexedAsDate()};
+   }
+
 }
