@@ -8,6 +8,12 @@
 package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
+import hotshots.search.model.IndexedFile;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JButton;
 
@@ -32,6 +38,14 @@ public class RemoveSelectedButton extends JButton {
    }
 
    private void init() {
-      super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
+      super.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            IndexedFile indexedFile = searchIndexTable.removeSelectedRow();
+            engine.remove(indexedFile);
+         }
+      });
    }
+
 }

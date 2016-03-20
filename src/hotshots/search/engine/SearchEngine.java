@@ -19,5 +19,7 @@ public interface SearchEngine {
    public List<IndexedFile> add(List<File> files);
 
    public List<IndexedFile> getIndexedFiles();
+   
+   public void remove(IndexedFile indexedFile);
 
 }

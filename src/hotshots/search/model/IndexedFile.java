@@ -2,6 +2,7 @@ package hotshots.search.model;
 
 import java.io.File;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  */
 public class IndexedFile {
 
-   private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy 'at' HH:mm:ss");
+   private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MMM dd, yyyy 'at' HH:mm:ss:SS");
    
    /**
     * Absolute path of the indexed file
@@ -23,6 +24,7 @@ public class IndexedFile {
     * Timestamp in milliseconds when this file was last indexed
     */
    private long lastIndexed;
+  
 
 
    public IndexedFile(File file, Date now) {
@@ -33,6 +35,12 @@ public class IndexedFile {
    public IndexedFile(String fileName, long lastIndexed) {
       this.fileName = fileName;
       this.lastIndexed = lastIndexed;
+   }
+   
+   public IndexedFile(String fileName, String lastIndexedDateString) throws ParseException {
+      this.fileName = fileName;
+      Date lastIndexedDate = DATE_FORMAT.parse(lastIndexedDateString);
+      this.lastIndexed = lastIndexedDate.getTime();
    }
 
    public String getFileName() {
@@ -71,5 +79,6 @@ public class IndexedFile {
       File file = new File(fileName);
       return file.exists();
    }
+
 
 }

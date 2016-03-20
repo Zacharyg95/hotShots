@@ -3,6 +3,7 @@ package hotshots.search.engine;
 import hotshots.search.model.IndexedFile;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,7 +20,7 @@ public class HotShotsSeachEngine implements SearchEngine {
          "hot-shots-search-index.txt");
 
    private static final String SEARCH_INDEX_FILE_DELIMITER = "\t";
-   private static final String NEWLINE = "\r\n";
+   private static final String NEWLINE = System.getProperty("line.separator");
 
    @Override
    public String search(String searchTerm, String... searchOptions) {
@@ -36,6 +37,7 @@ public class HotShotsSeachEngine implements SearchEngine {
          reader = new BufferedReader(new FileReader(this.searchIndexFile));
          for (String line = reader.readLine(); line != null; line = reader
                .readLine()) {
+            
             String[] splitLine = line.split("\t");
             String fileName = splitLine[0];
             long fileLastIndexed = Long.parseLong(splitLine[1]);
@@ -100,9 +102,7 @@ public class HotShotsSeachEngine implements SearchEngine {
       FileWriter writer = null;
       try {
          writer = new FileWriter(this.searchIndexFile, true);
-         writer.write(String.format("%s%s%s%d", NEWLINE,
-               file.getAbsolutePath(), SEARCH_INDEX_FILE_DELIMITER,
-               now.getTime()));
+         writer.write(getLineFormattedForIndexFile(file.getAbsolutePath(), now.getTime()));
       } catch (IOException e) {
          System.err.println("Failed to add file to our search index: "
                + e.getMessage());
@@ -123,6 +123,58 @@ public class HotShotsSeachEngine implements SearchEngine {
       IndexedFile indexedFile = new IndexedFile(file, now);
       return indexedFile;
 
+   }
+
+   private String getLineFormattedForIndexFile(String filePath, long lastIndexed) {
+      return String.format("%s%s%s%d", NEWLINE,
+            filePath, SEARCH_INDEX_FILE_DELIMITER,
+            lastIndexed);
+   }
+
+   @Override
+   public void remove(IndexedFile indexedFile) {
+      File tempFile = new File(".", "temp-hot-shots-search-index.txt");
+
+      BufferedReader reader = null;
+      BufferedWriter writer = null;
+      try {
+         reader = new BufferedReader(new FileReader(this.searchIndexFile));
+         writer = new BufferedWriter(new FileWriter(tempFile));
+
+         String lineToRemove = getLineFormattedForIndexFile(indexedFile.getFileName(), indexedFile.getLastIndexed()).trim();
+
+         for(String currentLine = reader.readLine(); currentLine != null; currentLine = reader.readLine()) {
+             if(currentLine.trim().equals(lineToRemove)){
+                //don't copy the line we're trying to remove when writing lines to the temp file
+                continue;
+             }
+             
+             writer.write(currentLine + NEWLINE);
+         }
+      } catch (FileNotFoundException e) {
+         throw new RuntimeException("Apparently, the " + this.searchIndexFile.getAbsolutePath() + " doesn't exist!");
+      } catch (IOException e) {
+         System.err.println("An IO error occurred when trying to remove " + indexedFile.getFileName() + " from " + this.searchIndexFile + ": " + e.getMessage());
+      }finally{
+         if(writer != null){
+            try {
+               writer.close();
+            } catch (IOException e) {
+               System.err.println("Failed to close writer: " + e.getMessage());
+            }
+         }
+         if(reader != null){
+            try {
+               reader.close();
+            } catch (IOException e) {
+               System.err.println("Failed to close reader: " + e.getMessage());
+            }
+         }
+      }
+      
+      if(this.searchIndexFile.delete() != true || tempFile.renameTo(this.searchIndexFile) != true){
+         throw new RuntimeException("Failed to rename " + tempFile + " to " + this.searchIndexFile);
+      }
    }
 
 }
