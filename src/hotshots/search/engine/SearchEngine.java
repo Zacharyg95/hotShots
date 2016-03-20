@@ -22,4 +22,6 @@ public interface SearchEngine {
    
    public void remove(IndexedFile indexedFile);
 
+   public List<IndexedFile> rebuildOutOfDate();
+
 }

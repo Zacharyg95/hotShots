@@ -80,5 +80,10 @@ public class IndexedFile {
       return file.exists();
    }
 
+   public void setLastIndexed(Date date) {
+      this.lastIndexed = date.getTime();
+      
+   }
+
 
 }

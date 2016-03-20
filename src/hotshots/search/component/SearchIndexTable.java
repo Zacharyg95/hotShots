@@ -99,9 +99,28 @@ public class SearchIndexTable extends JPanel {
          bw.close();
          fw.close();
       } catch (IOException e) {
-         // TODO Auto-generated catch block
+         
          e.printStackTrace();
       }
+   }
+
+   public void update(List<IndexedFile> rebuiltFiles) {
+      for(IndexedFile rebuiltFile : rebuiltFiles){
+         this.update(rebuiltFile);
+      }
+      
+   }
+
+   private void update(IndexedFile rebuiltFile) {
+      int rowCount = this.table.getRowCount();
+      for(int row = 0; row < rowCount; row++){
+         String fileName = (String) this.model.getValueAt(row, 0);
+         if(fileName.equals(rebuiltFile.getFileName())){
+            this.model.setValueAt(rebuiltFile.getLastIndexedAsDate(), row, 1);
+         }
+      }
+      
+      
    }
 
 }

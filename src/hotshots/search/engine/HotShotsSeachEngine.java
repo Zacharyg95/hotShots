@@ -37,7 +37,9 @@ public class HotShotsSeachEngine implements SearchEngine {
          reader = new BufferedReader(new FileReader(this.searchIndexFile));
          for (String line = reader.readLine(); line != null; line = reader
                .readLine()) {
-            
+            if(line.equals("")){
+               continue;
+            }
             String[] splitLine = line.split("\t");
             String fileName = splitLine[0];
             long fileLastIndexed = Long.parseLong(splitLine[1]);
@@ -78,6 +80,29 @@ public class HotShotsSeachEngine implements SearchEngine {
       }
 
       return indexedFiles;
+   }
+   
+   private void addFileToSearchIndex(IndexedFile indexedFile) {
+
+      FileWriter writer = null;
+      try {
+         writer = new FileWriter(this.searchIndexFile, true);
+         writer.write(getLineFormattedForIndexFile(indexedFile.getFileName(), indexedFile.getLastIndexed()));
+      } catch (IOException e) {
+         System.err.println("Failed to add file to our search index: "
+               + e.getMessage());
+         e.printStackTrace();
+      } finally {
+         if (writer != null) {
+            try {
+               writer.close();
+            } catch (IOException e) {
+               // swallow the exception because there's nothing we can do about
+               // it anyways
+            }
+         }
+      }
+      
    }
 
    /**
@@ -176,5 +201,26 @@ public class HotShotsSeachEngine implements SearchEngine {
          throw new RuntimeException("Failed to rename " + tempFile + " to " + this.searchIndexFile);
       }
    }
+
+   @Override
+   public List<IndexedFile> rebuildOutOfDate() {
+      List<IndexedFile> updatedFiles = new ArrayList<IndexedFile>();
+      List<IndexedFile> allFiles = getIndexedFiles();
+      
+      for(IndexedFile indexedFile : allFiles){
+         if(indexedFile.fileModifiedSinceLastIndexed()){
+            //TODO - actually update indexes
+            this.remove(indexedFile);
+            indexedFile.setLastIndexed(new Date());
+            this.addFileToSearchIndex(indexedFile);
+            updatedFiles.add(indexedFile);
+         }
+      }
+      
+      
+      return updatedFiles;
+   }
+
+   
 
 }

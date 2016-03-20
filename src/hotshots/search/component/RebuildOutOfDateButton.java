@@ -8,6 +8,11 @@
 package hotshots.search.component;
 
 import hotshots.search.engine.SearchEngine;
+import hotshots.search.model.IndexedFile;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 
@@ -32,6 +37,15 @@ public class RebuildOutOfDateButton extends JButton {
    }
 
    private void init() {
-      super.addActionListener(new DummyButtonActionListener(BUTTON_LABEL));
+      super.addActionListener(new ActionListener(){
+
+         @Override
+         public void actionPerformed(ActionEvent arg0) {
+            List<IndexedFile> rebuiltFiles = engine.rebuildOutOfDate();
+            searchIndexTable.update(rebuiltFiles);
+            
+         }
+         
+      });
    }
 }
