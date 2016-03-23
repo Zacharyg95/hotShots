@@ -6,6 +6,7 @@ import java.util.Properties;
 
 public class SaveBeforeExit {
 
+    //trivial change 
    public static void SaveBeforeExit(String[] filenameArray,
          String[] pathnameArray, String[] invertedIndexArray,
          String[] indexArray) throws IOException {
