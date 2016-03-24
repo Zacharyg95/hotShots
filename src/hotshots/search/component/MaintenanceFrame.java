@@ -57,7 +57,7 @@ public class MaintenanceFrame extends JFrame {
       super.setBounds(50, 50, 200, 100);
 
       super.pack();
-      super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+      super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       super.setVisible(true);
    }
 
