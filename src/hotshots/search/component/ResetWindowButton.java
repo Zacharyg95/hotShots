@@ -26,19 +26,21 @@ public class ResetWindowButton extends JButton {
    public ResetWindowButton() {
       super(BUTTON_LABEL);
       
-     /* super.addActionListener(new ActionListener() {
-
+      super.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            RemoveSelectedButton.deleteTableRow(null);
+            
             try {
-               RemoveSelectedButton.clearIndexFile();
                
+              // new MaintenanceFrame(engine);                 How do we create another instance of the Frame,
+              //                                                    Keep the focus on the first Frame we created, 
+              // MaintenceFrame.Dispose();                     Then dispose that frame and keep the new one  ??????
+                     
             } catch (IOException e1) {
                e1.printStackTrace();
             }
          }
-      });*/
+      });
       init();
    }
 
