@@ -59,7 +59,7 @@ public class MaintenanceFrame extends JFrame {
       super.setSize(700,700);            //Maintence frame size
       super.setBounds(600,460,400,600);  //Maintence Frame bounds
       super.pack();
-      super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      super.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       super.setVisible(true);
    }
 
