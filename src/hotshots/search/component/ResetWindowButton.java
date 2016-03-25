@@ -32,9 +32,11 @@ public class ResetWindowButton extends JButton {
             
             try {
                
-              // new MaintenanceFrame(engine);                 How do we create another instance of the Frame,
-              //                                                    Keep the focus on the first Frame we created, 
-              // MaintenceFrame.Dispose();                     Then dispose that frame and keep the new one  ??????
+               //MaintenceFrame.setSize(700,700);            //Maintence frame size
+               //MaintenanceFrame.setBounds(600,460,400,600);  //Maintence Frame bounds
+               //MaintenanceFrame.pack();                      //repack frame
+               //MaintenanceFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+              // MaintenanceFrame.setVisible(true);      
                      
             } catch (IOException e1) {
                e1.printStackTrace();
