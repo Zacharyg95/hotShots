@@ -20,7 +20,8 @@ public class CreateIndex {
    public static long TimeLastIndexed;
    public static String[] Pathnames;
    public static HashMap<String, List<String>> SearchIndex = new HashMap<String, List<String>>();
-
+   public static String StringHolder = "";
+   public static String WildCards = "[.?!:\\-=+,&()<>@#$%^\\*~` ]+";
    // Method will read the main file with the pathnames of the files that wish
    // to be indexed by the user.
 
@@ -48,7 +49,7 @@ public class CreateIndex {
       } catch (FileNotFoundException e)// catches if it cannot find file for
                                        // scanner
       {
-         e.printStackTrace();// Print stacktrace for now.
+         System.out.println("No File Was Found");
       }
    }
 
@@ -60,29 +61,19 @@ public class CreateIndex {
                                              // Scanner
             FileInputStream fis = new FileInputStream(PassedFile); // read contents of the new file
             BufferedInputStream  bis = new BufferedInputStream(fis);// buffer decrease reading time
-            DataInputStream dis = new DataInputStream(bis);
+            DataInputStream dis = new DataInputStream(bis);// Stream to read data to variable
             
             while (dis.available() != 0) //While loop will read the file line by line
             {
-               
-               
-
+               tempString += dis.readLine(); //Reads line and adds to the string, making one very long string.
             }
-            FileOutputStream SearchIndexFile = new FileOutputStream(
-                  "SearchIndexFilePathName");// Prepare fileoutput for object
-                                             // output
-            ObjectOutputStream out = new ObjectOutputStream(SearchIndexFile);// New
-                                                                             // object
-                                                                             // output
-                                                                             // passed
-                                                                             // the
-                                                                             // output
-                                                                             // file
-            out.writeObject(SearchIndex);// writeObject to file
-            out.close();
-            SearchIndexFile.close();// Close Output Streams for next loop
-            FileBeingIndexed.close();// Close Scanner before loops end, to
-                                     // create new one when loop startover
+            
+          
+          
+          
+          fis.close();//Close all input streams before loops ends
+          bis.close();//close to reopen at start of next loop
+          dis.close();// close after data has been read and modified
          }
 
          catch (FileNotFoundException e)// catches if it cannot find file for
