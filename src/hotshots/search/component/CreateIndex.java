@@ -21,7 +21,7 @@ public class CreateIndex {
    public static String[] Pathnames;
    public static HashMap<String, List<String>> SearchIndex = new HashMap<String, List<String>>();
    public static String StringHolder = "";
-   public static String WildCards = "[.?!:\\-=+,&()<>@#$%^\\*~` ]+";
+   public static String WildCards = "[.?!:\\-=+,&()<>@#$%^\\*~` ]+"; // Set of most common wild cards
    // Method will read the main file with the pathnames of the files that wish
    // to be indexed by the user.
 
@@ -54,6 +54,7 @@ public class CreateIndex {
    }
 
    public static void CreateSearchIndex(String[] Pathnames) {
+      public static String Words[];
       for (String Path : Pathnames)// for loop for each pathname element
       {
          try {
@@ -65,15 +66,23 @@ public class CreateIndex {
             
             while (dis.available() != 0) //While loop will read the file line by line
             {
-               tempString += dis.readLine(); //Reads line and adds to the string, making one very long string.
+               StringHolder += dis.readLine(); //Reads line and adds to the string, making one very long string.
             }
-            
+            Words[] = StringHolder.split(WildCards); // Add words to an array
+            List<String> SetHolder = new ArrayList<String>();//creat array list for HashMap
           
-          
+             for(String word : Words)//for each word in the Words array
+             {
+             SetHolder.add(word);//Add words to the List for the HashMap
+             }
+             //Actaully adds the words to the Hashmap with the file being the key 
+             //Saved As:(File PathName, Words in File)
+             SearchIndex.put(PassedFile,  SetHolder);
+             //Good place to get lastmodified time? right after it is modified?
           
           fis.close();//Close all input streams before loops ends
           bis.close();//close to reopen at start of next loop
-          dis.close();// close after data has been read and modified
+          dis.close();// close after data has been read and saved
          }
 
          catch (FileNotFoundException e)// catches if it cannot find file for
