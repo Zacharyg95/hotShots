@@ -58,15 +58,14 @@ public class CreateIndex {
          try {
             File PassedFile = new File(Path);// Prepare file to be scanned by
                                              // Scanner
-            Scanner FileBeingIndexed = new Scanner(PassedFile);// New Scanner to
-                                                               // read the
-                                                               // passed
-                                                               // parameter
-                                                               // pathname
-
-            while (FileBeingIndexed.hasNext()) // While loop retrieves each word
-                                               // from file and adds the HashMap
+            FileInputStream fis = new FileInputStream(PassedFile); // read contents of the new file
+            BufferedInputStream  bis = new BufferedInputStream(fis);// buffer decrease reading time
+            DataInputStream dis = new DataInputStream(bis);
+            
+            while (dis.available() != 0) //While loop will read the file line by line
             {
+               
+               
 
             }
             FileOutputStream SearchIndexFile = new FileOutputStream(
@@ -89,10 +88,10 @@ public class CreateIndex {
          catch (FileNotFoundException e)// catches if it cannot find file for
                                         // scanner
          {
-            e.printStackTrace();// Print stacktrace for now.
+            System.out.println("No File Was Found");
          } catch (IOException e)// catches if it cannot find file for scanner
          {
-            e.printStackTrace();// Print stacktrace for now.
+           System.out.println("No File Was Selected");
          }
       }
    }
