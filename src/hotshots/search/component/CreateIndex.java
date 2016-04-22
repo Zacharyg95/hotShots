@@ -75,7 +75,7 @@ public class CreateIndex {
           //Assign the last modfied time along with file name to HashMap
           //Saved as: (File Name, Date Object)
           FilesLastModified.put(PassedFile, date);
-          
+        
           fis.close();//Close all input streams before loops ends
           bis.close();//close to reopen at start of next loop
           dis.close();// close after data has been read and saved
@@ -88,5 +88,17 @@ public class CreateIndex {
            System.out.println("No File Was Selected.");
          }
       }
+        
+          File indexFile = new File("InvertedSearchIndex.txt");//Creates file
+          
+          if (indexFile.exists()) //checks if the file already exist
+               { indexFile.delete(); }    //Deletes file if it exist prior
+               
+          FileOutputStream fos = new FileOutputStream(indexFile);
+          ObjectOutputStream sos = new ObjectOutputStream(fos);//Open streams
+          
+          sos.writeObject(SearchIndex);//write the hashmap to the file.
+          sos.close();//close streams
+      
    }
 }
