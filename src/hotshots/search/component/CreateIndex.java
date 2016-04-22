@@ -1,13 +1,7 @@
 package hotshots.search.component;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  * HotShotsSearchEngine -- a basic search engine.
@@ -19,7 +13,8 @@ public class CreateIndex {
    // Class-Wide variables
    public static long TimeLastIndexed;
    public static String[] Pathnames;
-   public static HashMap<String, List<String>> SearchIndex = new HashMap<String, List<String>>();
+   public static HashMap<File, List<String>> SearchIndex = new HashMap<File, List<String>>();
+   public static HashMap<File, Date> FilesLastModified = new HashMap<File, Date>();
    public static String StringHolder = "";
    public static String WildCards = "[.?!:\\-=+,&()<>@#$%^\\*~` ]+"; // Set of most common wild cards
    // Method will read the main file with the pathnames of the files that wish
@@ -64,16 +59,22 @@ public class CreateIndex {
                StringHolder += dis.readLine(); //Reads line and adds to the string, making one very long string.
             }
             Words[] = StringHolder.split(WildCards); // Add words to an array
-            List<String> SetHolder = new ArrayList<String>();//creat array list for HashMap
+            List<String> SetHolder = new ArrayList<String>();//create array list for HashMap
           
              for(String word : Words)//for each word in the Words array
              {
              SetHolder.add(word);//Add words to the List for the HashMap
              }
              //Actaully adds the words to the Hashmap with the file being the key 
-             //Saved As:(File PathName, Words in File)
+             //Saved As:(File Name, Words in File)
              SearchIndex.put(PassedFile,  SetHolder);
-             //Good place to get lastmodified time? right after it is modified?
+             
+             
+             //Gets the last modified time in milliseconds, converts to a readable time in Date format for HashMap
+              Date date = new Date(PassedFile.lastModified(););
+          //Assign the last modfied time along with file name to HashMap
+          //Saved as: (File Name, Date Object)
+          FilesLastModified.put(PassedFile, date);
           
           fis.close();//Close all input streams before loops ends
           bis.close();//close to reopen at start of next loop
