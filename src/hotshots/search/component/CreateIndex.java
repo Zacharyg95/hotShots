@@ -71,7 +71,7 @@ public class CreateIndex {
              
              
              //Gets the last modified time in milliseconds, converts to a readable time in Date format for HashMap
-              Date date = new Date(PassedFile.lastModified(););
+              Date date = new Date(PassedFile.lastModified());
           //Assign the last modfied time along with file name to HashMap
           //Saved as: (File Name, Date Object)
           FilesLastModified.put(PassedFile, date);
