@@ -13,6 +13,10 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import java.io.*;
+import java.util.*;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
 /**
  * HotShotsSearchEngine -- a basic search engine.
@@ -78,4 +82,30 @@ public class SearchFieldsPanel extends JPanel {
       return this.searchTermTextField.getText();
    }
 
+   
+   public void AndSearchFunction() throws IOException{
+      
+       Path filePath = Paths.get("InvertedSearchIndex.txt");
+       Scanner scanner = new Scanner(filePath);
+       List<String> matches = new ArrayList<>();
+       
+       String words = getSearchTerm();
+      
+       while (scanner.hasNext()) {
+          if (scanner.hasNext()) {
+              
+              matches.add(scanner.findWithinHorizon(words, 10));
+        
+         } 
+         else {
+        scanner.next();
+         }
+        }
+       
+       for(int i = 0; i < matches.size(); i++) {
+           
+        }
+   
+       
+      } 
 }
