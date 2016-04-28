@@ -83,7 +83,7 @@ public class SearchFieldsPanel extends JPanel {
    }
 
    
-   public void AndSearchFunction() throws IOException{
+   public void OrSearchFunction() throws IOException{
       
        Path filePath = Paths.get("InvertedSearchIndex.txt");
        Scanner scanner = new Scanner(filePath);
@@ -102,10 +102,17 @@ public class SearchFieldsPanel extends JPanel {
          }
         }
        
-       for(int i = 0; i < matches.size(); i++) {
-           
-        }
-   
+   }
+      
        
-      } 
-}
+       
+       
+       public void PhraseSearchFunction() throws IOException{
+       
+       
+       }
+       
+       
+       
+       
+      }    
