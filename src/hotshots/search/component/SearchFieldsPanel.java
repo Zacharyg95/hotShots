@@ -104,7 +104,28 @@ public class SearchFieldsPanel extends JPanel {
        
    }
       
+        public void AndSearchFunction() throws IOException{
        
+       Path filePath = Paths.get("InvertedSearchIndex.txt");
+       Scanner scanner = new Scanner(filePath);
+       List<String> matches = new ArrayList<>();
+       
+       String words = getSearchTerm();
+       
+       while (scanner.hasNext()) {
+              
+           if (scanner.findInLine(words) == words){
+             
+               matches.add(scanner.next());
+        
+         } 
+       else {
+        scanner.next();
+         }
+       
+       
+       }
+       }
        
        
        public void PhraseSearchFunction() throws IOException{
