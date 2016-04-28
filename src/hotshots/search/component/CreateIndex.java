@@ -1,7 +1,9 @@
 package hotshots.search.component;
 
+import static hotshots.search.component.CreateIndex.Pathnames;
 import java.io.*;
 import java.util.*;
+
 
 /**
  * HotShotsSearchEngine -- a basic search engine.
@@ -45,7 +47,9 @@ public class CreateIndex {
 
    public static void CreateSearchIndex(String[] Pathnames) 
    {
-      public static String Words[]; //Method wide variable to hold words from indexing file
+       
+      String[] Words; //Method wide variable to hold words from indexing 
+      String TempHolder;
       for (String Path : Pathnames)// for loop for each pathname element
       {
          try {
@@ -56,12 +60,12 @@ public class CreateIndex {
             
             while (dis.available() != 0) //While loop will read the file line by line
             {
-               StringHolder += dis.readLine(); //Reads line and adds to the string, making one very long string.
+               TempHolder += dis.readLine(); //Reads line and adds to the string, making one very long string.
             }
-            Words[] = StringHolder.split(WildCards); // Add words to an array
+            Words[] = TempHolder.split(WildCards); // Add words to an array
             List<String> SetHolder = new ArrayList<String>();//create array list for HashMap
           
-             for(String word : Words)//for each word in the Words array
+             for(String word : Words[])//for each word in the Words array
              {
              SetHolder.add(word);//Add words to the List for the HashMap
              }
