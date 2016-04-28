@@ -48,8 +48,8 @@ public class CreateIndex {
    public static void CreateSearchIndex(String[] Pathnames) 
    {
        
-      String[] Words; //Method wide variable to hold words from indexing 
-      String TempHolder;
+       
+      String TempHolder ="";
       for (String Path : Pathnames)// for loop for each pathname element
       {
          try {
@@ -58,14 +58,14 @@ public class CreateIndex {
             BufferedInputStream  bis = new BufferedInputStream(fis);// buffer decrease reading time
             DataInputStream dis = new DataInputStream(bis);// Stream to read data to variable
             
-            while (dis.available() != 0) //While loop will read the file line by line
+            while (dis.available() != 0) //While loop will read the file line by line until EOF
             {
                TempHolder += dis.readLine(); //Reads line and adds to the string, making one very long string.
             }
-            Words[] = TempHolder.split(WildCards); // Add words to an array
+           String[] Words = TempHolder.split(WildCards); // Add words to an array
             List<String> SetHolder = new ArrayList<String>();//create array list for HashMap
           
-             for(String word : Words[])//for each word in the Words array
+             for(String word : Words)//for each word in the Words array
              {
              SetHolder.add(word);//Add words to the List for the HashMap
              }
@@ -92,7 +92,7 @@ public class CreateIndex {
            System.out.println("No File Was Selected.");
          }
       }
-        
+        try{
           File indexFile = new File("InvertedSearchIndex.txt");//Creates file
           
           if (indexFile.exists()) //checks if the file already exist
@@ -103,6 +103,13 @@ public class CreateIndex {
           
           sos.writeObject(SearchIndex);//write the hashmap to the file.
           sos.close();//close streams
-      
+        }
+       catch (FileNotFoundException e)// catches if it cannot find file for scanner
+         {
+            System.out.println("No File Was Found.");
+         } catch (IOException e)// catches if it cannot find file for scanner
+         {
+           System.out.println("No File Was Selected.");
+         }
    }
 }
